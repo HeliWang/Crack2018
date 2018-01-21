@@ -17,5 +17,5 @@
 
 ## System Design
 
-* Jiuzhang Notes
+* [Jiuzhang Notes](system-design/jiuzhang-notes.md)
 
