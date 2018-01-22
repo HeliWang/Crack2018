@@ -30,7 +30,22 @@ Google 三剑客:
 
 * Q: How to store a 100gb video file in a operating system?
 
-* A: Store the metadata and video context separately.
+* A: Store the metadata and video context separately. Block Size. Then Merge it.
+
+Write的方式是client端先分片好，然后再往chunk server里面写
+
+| Client | Server |
+| :---: | :---: |
+| Browser | Webserver |
+| Webserver | Database |
+| Database | GFS |
+| Webserver | GFS \(Goolgle File System\) |
+
+**Scale**:
+
+单Master够不够？
+
+90%的系统都采用单master
 
 
 
