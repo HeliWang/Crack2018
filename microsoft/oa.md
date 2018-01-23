@@ -286,7 +286,7 @@ string encode(string str) {
         i++;
     }
     res += temp + to_string(times);
-    
+
     return res;
 }
 
@@ -318,7 +318,7 @@ string decode(string str) { //"a4b4c3d1"
 }
 ```
 
-8. Coin Change
+1. Coin Change
 
 You are given coins of different denominations and a total amount of moneyamount. Write a function to compute the fewest number of coins that you need to make up that amount. If that amount of money cannot be made up by any combination of the coins, return`-1`.
 
@@ -350,6 +350,82 @@ int coinChange(vector<int>& coins, int amount) {
         }
     }
     return dp[amount] > amount ? -1 : dp[amount];
+```
+
+# 8. LRU Cache
+
+Design and implement a data structure for[Least Recently Used \(LRU\) cache](https://en.wikipedia.org/wiki/Cache_replacement_policies#LRU). It should support the following operations:`get`and`put`.
+
+`get(key)`- Get the value \(will always be positive\) of the key if the key exists in the cache, otherwise return -1.  
+`put(key, value)`- Set or insert the value if the key is not already present. When the cache reached its capacity, it should invalidate the least recently used item before inserting a new item.
+
+**Follow up:**  
+Could you do both operations in **O\(1\) **time complexity?
+
+Idea:
+
+```js
+Use a double linked list as cache, so we put the newest node in the front, and when it reached the capacity, 
+we can easily call list.pop_back();
+
+Then we need a hash_map to memorize the iterator of every node in list, so we can do lookup in O(1) time.
+
+```
+
+Solution:
+
+```cpp
+struct Node {
+    int key;
+    int value;
+    Node(int m, int n): key(m), value(n) {};
+};
+
+class LRUCache {
+private:
+    list<Node*> cache;
+    unordered_map<int, list<Node*>::iterator> mp;
+    int cap;
+public:
+    LRUCache(int capacity) {
+        cap = capacity;
+    }
+    
+    int get(int key) {
+        if (mp.count(key) > 0) {
+            auto it = mp[key];
+            int value = (*it)->value;
+            cache.erase(it);
+            Node* newNode = new Node(key, value);
+            cache.push_front(newNode);
+            mp[key] = cache.begin();
+            return value;
+        }
+        else return -1;
+    }
+    
+    void put(int key, int value) {
+        if (mp.count(key) > 0) {
+            auto it = mp[key];
+            int value = (*it)->value;
+            cache.erase(it);   
+        }
+        Node* newNode = new Node(key, value);
+        cache.push_front(newNode);
+        mp[key] = cache.begin();
+        if (cache.size() > cap) {
+            mp.erase((*cache.back()).key);
+            cache.pop_back();
+        }
+    }
+};
+
+/**
+ * Your LRUCache object will be instantiated and called as such:
+ * LRUCache obj = new LRUCache(capacity);
+ * int param_1 = obj.get(key);
+ * obj.put(key,value);
+ */
 ```
 
 
