@@ -102,5 +102,117 @@ ListNode* reverseListHelper(ListNode* head, ListNode* prev) {
 }
 ```
 
+# 4. Reverse Linked List II
+
+```cpp
+ListNode* reverseBetween(ListNode* head, int m, int n) {
+    if (!head || !head->next||(m==n)) return head;
+    ListNode* a = NULL;
+    ListNode* b = head;
+    ListNode* c = NULL;
+    int count = 1;
+    if (m == 1) {
+        while (count <= n) {
+            c = b->next;
+            b->next = a;
+            a = b;
+            b = c;
+            count++;
+        }
+        head->next = b;
+        return a;
+    }
+    else {
+        ListNode* dummy = head;
+        count = 1;
+        while (count < m-1) {
+            dummy = dummy->next;
+            count++;
+        }
+        count = 0;
+        ListNode *start = dummy->next;
+        b = start;
+        while (count <= n-m) {
+            c = b->next;
+            b->next = a;
+            a = b;
+            b = c;
+            count++;
+        }
+        start->next = b;
+        dummy->next = a;
+        return head;
+    }
+}
+```
+
+# 5. Divide Two Integers
+
+**Idea**:
+
+```
+被除数每乘以2，multiple就可以乘以二，比如18 / 2, 那么2乘以了八倍，那么商也应该从1乘以八倍，
+最后得到更新的dvd为2，dis还是2，所以8+1 = 9
+```
+
+**Solution**:
+
+```cpp
+int divide(int dividend, int divisor) {
+    if (!divisor || (dividend == INT_MIN && divisor == -1))
+        return INT_MAX;
+    int sign = ((dividend < 0) ^ (divisor < 0)) ? -1 : 1;
+    int res = 0;
+    long long dvd = labs(dividend);
+    long long dvs = labs(divisor);
+    while(dvd >= dvs) {
+        long long temp = dvs, multiple = 1;
+        while (dvd >= (temp << 1)) {
+            temp <<= 1;
+            multiple <<= 1;
+        }
+        dvd -= temp;
+        res += multiple;
+    }
+    return sign * res;
+}
+```
+
+
+
+6. Compare Version Number
+
+Idea:
+
+```
+Get the single version number one by one, and also controlled in a big while loop
+Let num1 = num2 = 0, then can handle some edge cases: 
+    x.y.z > x.y
+```
+
+**Solution**:
+
+```cpp
+int compareVersion(string version1, string version2) {
+    int num1 = 0, num2 = 0;
+    int i = 0, j = 0;
+    while(i<version1.length() || j < version2.length()) {
+        while(version1[i]!='.' && i < version1.length()) {
+            num1 = num1*10 + version1[i]-'0';
+            i++;
+        }
+        while(version2[j]!='.' && j < version2.length()) {
+            num2 = num2*10 + version2[j]-'0';
+            j++;
+        }
+        if (num1 != num2) return num1>num2?1:-1;
+        i++;j++;
+        num1 = num2 = 0;
+    }
+    
+    return 0;
+}
+```
+
 
 
