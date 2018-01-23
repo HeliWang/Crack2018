@@ -67,5 +67,40 @@ void printReverseFib(int n) {
 }
 ```
 
+# 3. Reverse Linked List
+
+Iteration:
+
+```cpp
+ListNode* reverseList(ListNode* head) {
+    ListNode* prev = NULL;
+    ListNode* curr = head;
+    ListNode* post = NULL;
+    while (curr) {
+        post = curr->next;
+        curr->next = prev;
+        prev = curr;
+        curr = post;
+    }
+    return prev;
+}
+```
+
+Recursion:
+
+```cpp
+ListNode* reverseList(ListNode* head) {
+    ListNode* prev = NULL;
+    return reverseListHelper(head, prev);
+}
+
+ListNode* reverseListHelper(ListNode* head, ListNode* prev) {
+    if (!head) return prev;
+    ListNode* post = head->next;
+    head->next = prev;
+    return reverseListHelper(post, head);
+}
+```
+
 
 
