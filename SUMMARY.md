@@ -13,7 +13,9 @@
 
 ## Microsoft
 
-* OA
+* [OA Mianjing](microsoft/oa.md)
+* [LC Explore](microsoft/array.md)
+  * [Array](microsoft/array/array.md)
 
 ## System Design
 
