@@ -178,9 +178,7 @@ int divide(int dividend, int divisor) {
 }
 ```
 
-
-
-6. Compare Version Number
+1. Compare Version Number
 
 Idea:
 
@@ -209,8 +207,63 @@ int compareVersion(string version1, string version2) {
         i++;j++;
         num1 = num2 = 0;
     }
-    
+
     return 0;
+}
+```
+
+
+
+# 6. Permutation Sequence
+
+The set`[1,2,3,…,n]`contains a total ofn! unique permutations.
+
+By listing and labeling all of the permutations in order,  
+We get the following sequence \(ie, for n= 3\):
+
+```
+"123"
+"132"
+"213"
+"231"
+"312"
+"321"
+```
+
+Given N and K, return the Kth permutation sequence.
+
+Idea:
+
+```
+Use Factorial, 找规律
+```
+
+Solution:
+
+```cpp
+int fact(int n) {
+    if (n == 1) return 1;
+    return n * fact(n-1);
+}
+
+string getPermutation(int n, int k) {
+    string s = "";
+    int factorial = fact(n); 
+    k = (k-1) % (factorial); 
+    vector<int> candidates(n, 0);
+    for (int i = 0; i < candidates.size(); i++) {
+        candidates[i] = i + 1;
+    }
+    
+    while (n) {
+        factorial = factorial / n;  
+        int index = k / factorial; 
+        s += candidates[index] + '0'; 
+        candidates.erase(candidates.begin() + index);
+        k = k % factorial;
+        n--; 
+    }
+    return s;
 }
 ```
 
