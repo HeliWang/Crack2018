@@ -212,8 +212,6 @@ int compareVersion(string version1, string version2) {
 }
 ```
 
-
-
 # 6. Permutation Sequence
 
 The set`[1,2,3,…,n]`contains a total ofn! unique permutations.
@@ -254,7 +252,7 @@ string getPermutation(int n, int k) {
     for (int i = 0; i < candidates.size(); i++) {
         candidates[i] = i + 1;
     }
-    
+
     while (n) {
         factorial = factorial / n;  
         int index = k / factorial; 
@@ -265,6 +263,93 @@ string getPermutation(int n, int k) {
     }
     return s;
 }
+```
+
+# 7. Encode & Decode
+
+**"aaaabbbbcccd" to "a4b4c3d1", encode & decode**
+
+```cpp
+string encode(string str) {
+    string res;
+    int i = 1;
+    char temp = str[0];
+    int times = 1;
+    while (i < (int)str.length()) {
+        if (str[i] == temp) {
+            times++;
+        } else {
+            res += temp + to_string(times);
+            temp = str[i];
+            times = 1;
+        }
+        i++;
+    }
+    res += temp + to_string(times);
+    
+    return res;
+}
+
+string decode(string str) { //"a4b4c3d1"
+    string res;
+    int i = 0;
+    char temp;
+    int times = 0;
+    while (i < (int)str.length()) {
+        if (isalpha(str[i])) {
+            times = 0;
+            temp = str[i];
+            i++;
+        }
+        else {
+            while (isdigit(str[i]) && i < (int)str.length()) {
+                times = times * 10 + str[i] - '0';
+                i++;
+            }
+            while (times-- > 0) {
+                res += temp;
+            }
+        }
+    }
+    while (times > 0) {
+        res += temp;
+    }
+    return res;
+}
+```
+
+8. Coin Change
+
+You are given coins of different denominations and a total amount of moneyamount. Write a function to compute the fewest number of coins that you need to make up that amount. If that amount of money cannot be made up by any combination of the coins, return`-1`.
+
+**Example 1:**  
+coins =`[1, 2, 5]`, amount =`11`  
+return`3`\(11 = 5 + 5 + 1\)
+
+**Example 2:**  
+coins =`[2]`, amount =`3`  
+return`-1`.
+
+**Idea**:
+
+```
+Dynamic Programming, 以amount的数量来做dp，每次尝试min(res, dp[i- one of (5,2,1)]+1);
+```
+
+**Solution**:
+
+```cpp
+int coinChange(vector<int>& coins, int amount) {
+    vector<int> dp(amount + 1, amount + 1);
+    dp[0] = 0;
+    for (int j = 1; j <= amount; j++) {
+        for (int k = 0; k < coins.size(); k++) {
+            if (j >= coins[k]) {
+                dp[j] = min(dp[j], dp[j - coins[k]] + 1);
+            }
+        }
+    }
+    return dp[amount] > amount ? -1 : dp[amount];
 ```
 
 
