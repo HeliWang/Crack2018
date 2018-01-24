@@ -44,7 +44,16 @@ struct cmp {
         return a.second < b.second;
     }
 };
+```
 
+Getline usage:
+
+```cpp
+#include <sstream>
+stringstream ss(path);
+while (getline(ss,tmp,'/')) {
+    // then we can get the split single element one by one
+}
 ```
 
 

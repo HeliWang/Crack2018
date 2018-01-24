@@ -369,7 +369,6 @@ Use a double linked list as cache, so we put the newest node in the front, and w
 we can easily call list.pop_back();
 
 Then we need a hash_map to memorize the iterator of every node in list, so we can do lookup in O(1) time.
-
 ```
 
 Solution:
@@ -390,7 +389,7 @@ public:
     LRUCache(int capacity) {
         cap = capacity;
     }
-    
+
     int get(int key) {
         if (mp.count(key) > 0) {
             auto it = mp[key];
@@ -403,7 +402,7 @@ public:
         }
         else return -1;
     }
-    
+
     void put(int key, int value) {
         if (mp.count(key) > 0) {
             auto it = mp[key];
@@ -426,6 +425,31 @@ public:
  * int param_1 = obj.get(key);
  * obj.put(key,value);
  */
+```
+
+9. Simplify Path
+
+
+
+Solution: 
+
+```cpp
+string simplifyPath(string path) {
+    string res, tmp;
+    vector<string> stk;
+    stringstream ss(path);
+    while (getline(ss,tmp,'/')) {
+        if (tmp == "" || tmp == ".") continue;
+        else if (tmp == "..") {
+            if (!stk.empty()) stk.pop_back();
+        }
+        else if (tmp != "..") stk.push_back(tmp);
+    }
+    for (auto elem : stk) {
+        res += '/' + elem;
+    }
+    return res.empty() ? "/" : res;
+}
 ```
 
 
