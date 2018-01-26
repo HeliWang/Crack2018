@@ -12,9 +12,11 @@
 
 7. Lowest Common Ancestor of a Binary Search Tree \(从root向下遍历, 如果跟其中一个相等就返回root, 然后判断大中小三个可能\)
 
-8. Lowest Common Ancestor of a Binary Tree \(Recrusion, 建一个leftNode 是 LCS\(root-&gt;left\)的返回值, 同时建一个rightNode, 根据这两个的返回值来输出结果, 注意recursion的base case是: root与p,q 相等则返回root\) 
+8. Lowest Common Ancestor of a Binary Tree \(Recrusion, 建一个leftNode 是 LCS\(root-&gt;left\)的返回值, 同时建一个rightNode, 根据这两个的返回值来输出结果, 注意recursion的base case是: root与p,q 相等则返回root\)
 
 PS: 由于是Binary Tree, 所以这里不能用root-&gt;val来做任何判断, 直接判断root和p,q的地址即可
 
-9. Construct Binary Tree from Preorder and Inorder Traversal
+   9. Construct Binary Tree from Preorder and Inorder Traversal
+
+
 
