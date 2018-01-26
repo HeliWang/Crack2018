@@ -16,6 +16,8 @@
 * [OA Mianjing](microsoft/oa.md)
 * [LC Explore](microsoft/array.md)
   * [Array](microsoft/array/array.md)
+  * [Linked List](microsoft/array/linked-list.md)
+  * [Tree and Graphs](microsoft/array/tree-and-graphs.md)
 
 ## System Design
 
