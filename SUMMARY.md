@@ -11,6 +11,9 @@
 
 ## Leetcode \(Category\)
 
+* [Backtracking](leetcode-category/backtracking.md)
+* [Dynamic Programming](leetcode-category/dynamic-programming.md)
+
 ## Microsoft
 
 * [OA Mianjing](microsoft/oa.md)
