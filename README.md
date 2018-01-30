@@ -6,12 +6,6 @@ Github: [hebiao064](https://github.com/hebiao064)
 
 
 
-Quote: 
-
-  
-p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 19.0px; font: 13.0px 'Helvetica Neue'}  
-
-
 有套路，如果问最短，最少，BFS
 
 如果问连通性，静态就是 DFS,BFS，动态就 UF
