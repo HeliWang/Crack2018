@@ -1,8 +1,6 @@
-
-
 # Wild Card Matching
 
-Implement wildcard pattern matching with support for `'?' `and `'*'`
+Implement wildcard pattern matching with support for `'?'`and `'*'`
 
 ```
 '?' Matches any single character.
@@ -25,7 +23,7 @@ isMatch("ab", "?*") → true
 isMatch("aab", "c*a*b") → false
 ```
 
-Idea:
+**Idea:**
 
 ```
 http://bangbingsyb.blogspot.com/2014/11/leetcode-wildcard-matching.html
@@ -41,7 +39,7 @@ p[j-1] == '*'：
 3. 匹配多个字符：dp[i][j] = dp[i-1][j]
 ```
 
-Solution:
+**Solution**:
 
 ```cpp
 bool isMatch(string s, string p) {
@@ -59,14 +57,12 @@ bool isMatch(string s, string p) {
                     dp[i][j] = true;
                 }
             }
-                
+
         }
     }
     return dp[m][n];
 }
 ```
-
-
 
 # Regular Expression Matching
 
@@ -91,7 +87,7 @@ isMatch("ab", ".*") → true
 isMatch("aab", "c*a*b") → true
 ```
 
-Idea:
+**Idea:**
 
 ```
 http://bangbingsyb.blogspot.com/2014/11/leetcode-regular-expression-matching.html
@@ -119,7 +115,7 @@ dp[i][j] = dp[i-1][j] && (p[j-2]=='.' || s[i-1]==p[j-2])
 我们只需要往i-1回退一步就可以了，因为如果更多的匹配的话，会在for循环里先setup好，所以最后的一次是可以得到之前累计的结果的
 ```
 
-Solution:
+**Solution:**
 
 ```cpp
 bool isMatch(string s, string p) {
@@ -138,6 +134,176 @@ bool isMatch(string s, string p) {
     }
     return dp[m][n];
 }
+```
+
+# Word Search
+
+Given a 2D board and a word, find if the word exists in the grid.
+
+The word can be constructed from letters of sequentially adjacent cell, where "adjacent" cells are those horizontally or vertically neighboring. The same letter cell may not be used more than once.
+
+For example,  
+Given **board **=
+
+```
+[
+  ['A','B','C','E'],
+  ['S','F','C','S'],
+  ['A','D','E','E']
+]
+```
+
+**word**=`"ABCCED"`, -&gt; returns `true`
+
+**Idea:**
+
+```
+DFS
+```
+
+**Solution:**
+
+```
+bool exist(vector<vector<char>>& board, string word) {
+    if (word.length() == 0) return true;
+    if (board.size() == 0 || board[0].size() == 0) return 0;
+    vector<vector<bool>> visited(board.size(), vector<bool>(board[0].size(), false));
+    for (int i = 0; i < board.size(); i++) {
+        for (int j = 0; j < board[0].size(); j++) {
+            if (board[i][j] == word[0]) {
+                if (dfs(board, word, visited, i, j, 0)) return true;
+            }
+        }
+    }
+    return false;
+}
+
+bool dfs(vector<vector<char>>& board, string word, vector<vector<bool>> visited, int i, int j, int start) {
+    if (start == word.length() - 1 && board[i][j] == word[start]) return true;
+    visited[i][j] = true;
+    if (board[i][j] == word[start]) {
+        if (i < board.size() - 1 && !visited[i + 1][j] &&  dfs(board, word, visited, i + 1, j, start + 1)) return true;
+        if (j < board[0].size() - 1 && !visited[i][j + 1] && dfs(board, word, visited, i, j + 1, start + 1)) return true;
+        if (i > 0 && !visited[i - 1][j] && dfs(board, word, visited, i - 1, j, start + 1)) return true;
+        if (j > 0 && !visited[i][j - 1] && dfs(board, word, visited, i, j - 1, start + 1)) return true;
+    } 
+    return false;
+}
+```
+
+# Word Search II
+
+Given a 2D board and a list of words from the dictionary, find all words in the board.
+
+Each word must be constructed from letters of sequentially adjacent cell, where "adjacent" cells are those horizontally or vertically neighboring. The same letter cell may not be used more than once in a word.
+
+For example,  
+Given **words**=`["oath","pea","eat","rain"]`and **board **=
+
+```
+[
+  ['o','a','a','n'],
+  ['e','t','a','e'],
+  ['i','h','k','r'],
+  ['i','f','l','v']
+]
+```
+
+Return
+
+`["eat","oath"]`
+
+Idea:
+
+```
+Trie + DFS
+Trie照常建，注意在words array上建而不是二维矩阵
+然后对矩阵里每一个元素进行word search based on Trie root
+```
+
+Solution:
+
+```cpp
+class TrieNode {
+public:
+    bool hasWord;
+    unordered_map<char, TrieNode*> children;
+    TrieNode () {
+        hasWord = false;
+    }
+};
+
+class Trie {
+private:
+    TrieNode* root;
+public:
+    /** Initialize your data structure here. */
+    Trie() {
+        root = new TrieNode();
+    }
+    
+    TrieNode* getRoot() {
+        return root;
+    }
+    
+    /** Inserts a word into the trie. */
+    void insert(string word) {
+        TrieNode* curr = root;
+        for (int i = 0; i < word.length(); i++) {
+            if (curr->children.count(word[i]) == 0) curr->children[word[i]] = new TrieNode();
+            curr = curr->children[word[i]];
+        }
+        curr->hasWord = true;
+    }
+    
+    /** Returns if the word is in the trie. */
+    bool search(string word) {
+        TrieNode* curr = root;
+        for (int i = 0; i < word.length(); i++) {
+            if (curr->children.count(word[i]) > 0) curr = curr->children[word[i]];
+            else return false;
+        }
+        return curr->hasWord == true;
+    }
+};
+
+class Solution {
+public:
+    vector<string> findWords(vector<vector<char>>& board, vector<string>& words) {
+        vector<string> res;
+        if (words.size() == 0 || board.size() == 0 || board[0].size() == 0) return res;
+    
+        sort(words.begin(), words.end() );
+        words.erase( unique( words.begin(), words.end() ), words.end());
+        string line;
+        vector<vector<bool>> visited(board.size(), vector<bool>(board[0].size(), false));
+        Trie *trie = new Trie();
+        for (auto x: words) trie->insert(x);
+        TrieNode* root = trie->getRoot();
+        for (int i = 0; i < board.size(); i++) {
+            for (int j = 0; j < board[0].size(); j++) {
+                dfs(board, root, line, res, visited, i, j);
+            }
+        }
+        sort(res.begin(), res.end() );
+        res.erase(unique(res.begin(), res.end()), res.end());
+        return res;
+    }
+
+    void dfs(vector<vector<char>>& board, TrieNode* root, string line, vector<string>& res, vector<vector<bool>> visited, int i, int j) {
+        if (!root || i < 0 || j < 0 || i == board.size() || j == board[0].size() || visited[i][j]) return;
+        visited[i][j] = true;
+        if (root->children.count(board[i][j]) > 0) {
+            line += board[i][j];
+            root = root->children[board[i][j]];
+            if (root->hasWord) res.push_back(line);
+            dfs(board, root, line, res, visited, i + 1, j);
+            dfs(board, root, line, res, visited, i, j + 1);
+            dfs(board, root, line, res, visited, i - 1, j);
+            dfs(board, root, line, res, visited, i, j - 1);
+        }
+    }
+};
 ```
 
 
