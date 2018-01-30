@@ -241,11 +241,11 @@ public:
     Trie() {
         root = new TrieNode();
     }
-    
+
     TrieNode* getRoot() {
         return root;
     }
-    
+
     /** Inserts a word into the trie. */
     void insert(string word) {
         TrieNode* curr = root;
@@ -255,7 +255,7 @@ public:
         }
         curr->hasWord = true;
     }
-    
+
     /** Returns if the word is in the trie. */
     bool search(string word) {
         TrieNode* curr = root;
@@ -272,7 +272,7 @@ public:
     vector<string> findWords(vector<vector<char>>& board, vector<string>& words) {
         vector<string> res;
         if (words.size() == 0 || board.size() == 0 || board[0].size() == 0) return res;
-    
+
         sort(words.begin(), words.end() );
         words.erase( unique( words.begin(), words.end() ), words.end());
         string line;
@@ -304,6 +304,51 @@ public:
         }
     }
 };
+```
+
+# Letter Combinations of a Phone Number
+
+Given a digit string, return all possible letter combinations that the number could represent.
+
+A mapping of digit to letters \(just like on the telephone buttons\) is given below.
+
+![](/assets/import.png)
+
+```
+Input:Digit string "23"
+Output: ["ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"].
+```
+
+Idea:
+
+```
+Backtracking, constructed a candidates array at first
+```
+
+Solution:
+
+```cpp
+vector<string> letterCombinations(string digits) {
+    vector<string> candidates = {"", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
+    string line;
+    vector<string> res;
+    if (digits.length() == 0) return res;
+    helper(res, line, candidates, digits, 0);
+    return res;
+}
+void helper(vector<string>& res, string line, vector<string> candidates, string digits, int start) {
+    if (line.length() == digits.length()) {
+        res.push_back(line);
+        return;
+    }
+    if (start >= digits.length()) return;
+    int index = digits[start] - '0';
+    for (int i = 0; i < candidates[index].length(); i++) {
+        line.push_back(candidates[index][i]);
+        helper(res, line, candidates, digits, start + 1);
+        line.pop_back();
+    }
+}
 ```
 
 
