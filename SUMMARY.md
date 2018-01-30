@@ -21,6 +21,7 @@
   * [Array](microsoft/array/array.md)
   * [Linked List](microsoft/array/linked-list.md)
   * [Tree and Graphs](microsoft/array/tree-and-graphs.md)
+  * [Backtracking](microsoft/array/backtracking.md)
 
 ## System Design
 
