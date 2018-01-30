@@ -28,5 +28,6 @@
 
 ## Google
 
+* [Google](google/google.md)
 * [Google I](google/google-i.md)
 
