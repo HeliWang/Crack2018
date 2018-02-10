@@ -43,7 +43,13 @@ struct cmp {
     bool operator() (pair<int, int> &a, pair<int,int> &b) {
         return a.second < b.second;
     }
-};
+} cmp;
+
+or
+
+static bool operator() (Interval a, Interval b) {
+    return a.start < b.start;
+}
 ```
 
 Getline usage:
