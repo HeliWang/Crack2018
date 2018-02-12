@@ -18,10 +18,14 @@
 
 * [OA Mianjing](microsoft/oa.md)
 * [LC Explore](microsoft/array.md)
-  * [Array](microsoft/array/array.md)
-  * [Linked List](microsoft/array/linked-list.md)
-  * [Tree and Graphs](microsoft/array/tree-and-graphs.md)
-  * [Backtracking](microsoft/array/backtracking.md)
+  * [1. Array and Strings](microsoft/array/array.md)
+  * [2. Linked List](microsoft/array/linked-list.md)
+  * [3. Tree and Graphs](microsoft/array/tree-and-graphs.md)
+  * [4. Backtracking](microsoft/array/backtracking.md)
+  * [5. Sorting and Searching](microsoft/array/sorting-and-searching.md)
+  * [6. Dynamic Programming](microsoft/array/dynamic-programming.md)
+  * [7. Design](microsoft/array/design.md)
+  * [8. Others](microsoft/array/others.md)
 
 ## System Design
 
