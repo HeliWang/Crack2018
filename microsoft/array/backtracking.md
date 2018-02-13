@@ -1,4 +1,4 @@
-# Wild Card Matching
+# 1. Wild Card Matching
 
 Implement wildcard pattern matching with support for `'?'`and `'*'`
 
@@ -64,7 +64,7 @@ bool isMatch(string s, string p) {
 }
 ```
 
-# Regular Expression Matching
+# 2. Regular Expression Matching
 
 Implement regular expression matching with support for`'.'`and`'*'`
 
@@ -136,7 +136,7 @@ bool isMatch(string s, string p) {
 }
 ```
 
-# Word Search
+# 3. Word Search
 
 Given a 2D board and a word, find if the word exists in the grid.
 
@@ -191,7 +191,7 @@ bool dfs(vector<vector<char>>& board, string word, vector<vector<bool>> visited,
 }
 ```
 
-# Word Search II
+# 4. Word Search II
 
 Given a 2D board and a list of words from the dictionary, find all words in the board.
 
@@ -306,7 +306,7 @@ public:
 };
 ```
 
-# Letter Combinations of a Phone Number
+# 5. Letter Combinations of a Phone Number
 
 Given a digit string, return all possible letter combinations that the number could represent.
 
