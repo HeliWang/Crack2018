@@ -13,6 +13,7 @@
 
 * [Backtracking](leetcode-category/backtracking.md)
 * [Dynamic Programming](leetcode-category/dynamic-programming.md)
+  * [Dungeon Game](leetcode-category/dynamic-programming/dungeon-game.md)
 
 ## Microsoft
 
@@ -26,6 +27,7 @@
   * [6. Dynamic Programming](microsoft/array/dynamic-programming.md)
   * [7. Design](microsoft/array/design.md)
   * [8. Others](microsoft/array/others.md)
+  * [Tags not in explore](microsoft/array/tags-not-in-explore.md)
 
 ## System Design
 

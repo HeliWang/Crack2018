@@ -20,14 +20,12 @@ Note that different sequences are counted as different combinations.
 Therefore the output is 7.
 ```
 
-
-
 Idea:
 
 ```
 Dynamic Programming
 Thinking of the last step to reach dp[target]
-dp[target] = sum of (dp[target] - nums[i]);
+dp[target] = sum of (dp[target - nums[i]]);
 
 Base Case: dp[0] = 1;
 ```
@@ -40,7 +38,7 @@ int combinationSum4(vector<int>& nums, int target) {
     for (auto x: nums) {
         if (x <= target) dp[x] = 1;
     }
-    
+
     for (int i = 0; i <= target; i++) {
         for (auto x : nums) {
             if (x <= i) {
