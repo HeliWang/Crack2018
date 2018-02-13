@@ -4,9 +4,5 @@ We compile this list thoroughly so you can save time and get well-prepared for a
 
 Completing this card should give you a good idea of the type of questions you would encounter in your Microsoft interview.
 
-```cpp
-
-```
-
-
+https://leetcode.com/explore/interview/card/microsoft/
 
