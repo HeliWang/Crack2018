@@ -32,11 +32,9 @@ DAG 的问题就 dfs+memo
 
 如果遇到二维 dp 不会，先考虑一维情况如何解
 
-
-
 **Basic C++ Skills**
 
-```
+```cpp
 #include <iostream> // cin cout
 ```
 
@@ -54,7 +52,7 @@ DAG 的问题就 dfs+memo
 
 取pair
 
-```
+```cpp
 pair<int, int> a = make_pair(1,2);
 a.first;
 a.second;
@@ -62,7 +60,7 @@ a.second;
 
 取list
 
-```
+```cpp
 list<Node*>::iterator it;
 *it->key;
 *it->value;
@@ -70,7 +68,7 @@ list<Node*>::iterator it;
 
 priority\_queue
 
-```
+```cpp
 priority_queue<int, vector<int>, cmp> pq;
 // cmp is comparator, default is less<T>, for maxheap
 
