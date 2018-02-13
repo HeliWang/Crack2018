@@ -14,6 +14,9 @@
 * [Backtracking](leetcode-category/backtracking.md)
 * [Dynamic Programming](leetcode-category/dynamic-programming.md)
   * [Dungeon Game](leetcode-category/dynamic-programming/dungeon-game.md)
+  * [Combination Sum IV](leetcode-category/dynamic-programming/combination-sum-iv.md)
+  * [2 Keys Keyboard & 4 Keys Keyboard](leetcode-category/dynamic-programming/2-keys-keyboard-and-4-keys-keyboard.md)
+* [Tree](leetcode-category/tree.md)
 
 ## Microsoft
 
