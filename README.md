@@ -72,17 +72,18 @@ priority\_queue
 priority_queue<int, vector<int>, cmp> pq;
 // cmp is comparator, default is less<T>, for maxheap
 
+1. Struct or Class 一定要initialize再传进去
 struct cmp {
     bool operator() (pair<int, int> &a, pair<int,int> &b) {
         return a.second < b.second;
     }
 } cmp;
 
-or
 
+2. method的话，如果在class里一定要加static，在class外不用
 static bool cmp (Interval a, Interval b) {
     return a.start < b.start;
-}
+} 
 ```
 
 Getline usage:
