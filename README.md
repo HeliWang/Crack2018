@@ -80,7 +80,7 @@ struct cmp {
 
 or
 
-static bool operator() (Interval a, Interval b) {
+static bool cmp (Interval a, Interval b) {
     return a.start < b.start;
 }
 ```
