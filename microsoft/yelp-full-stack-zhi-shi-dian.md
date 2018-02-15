@@ -10,8 +10,6 @@ Server sends back a HTTP response
 
 Render the HTML
 
-
-
 \#2 Closure
 
 [https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-closure-b2f0d2152b36](https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-closure-b2f0d2152b36)
@@ -42,8 +40,6 @@ The inner function will have access to the variables in the outer function scope
 　　var result=f1();
 
 　　result(); // 999
-
-
 ```
 
 [https://coderbyte.com/algorithm/3-common-javascript-closure-questions](https://www.gitbook.com/book/hebiao064/crack2018/edit#)
@@ -60,12 +56,12 @@ addSix(10); // returns 16
 addSix(21); // returns 27
 
 function createBase(base) {
-	var counter = base || 0;
-	function f2 (toAdd) {
-		counter += toAdd;
-		console.log(counter);
-	}
-	return f2;
+    var counter = base || 0;
+    function f2 (toAdd) {
+        counter += toAdd;
+        console.log(counter);
+    }
+    return f2;
 }
 
 // 3. How would you use a closure to create a private counter?
@@ -88,14 +84,12 @@ c.add(5);
 c.add(9); 
 
 // now we can access the private variable in the following way
-c.retrieve(); // => The counter is currently at: 14
+c.retrieve(); // => The counter is currently at: 14#3
 ```
 
+\#3. Endpoint
 
+If no response: settimeout call
 
-3. Endpoint
-
-If no response: settimeout call 
-
-If slow?  Server too far, db query to slow \(too much join\), too much traffic,  distributed server too slow
+If slow?  Server too far, db query to slow \(too much join\), too much traffic,  distributed api service might be called
 
