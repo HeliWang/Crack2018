@@ -45,5 +45,6 @@
 
 * [Yelp OA](microsoft/yelp-oa.md)
 * [Yelp Full Stack 知识点](microsoft/yelp-full-stack-zhi-shi-dian.md)
+* [Yelp Phone Interview](microsoft/yelp-phone-interview.md)
 * [Iterator](microsoft/iterator.md)
 

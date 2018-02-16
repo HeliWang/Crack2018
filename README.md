@@ -39,16 +39,18 @@ DAG 的问题就 dfs+memo
 ```
 
 ```cpp
-#include <climits> // for INT_MAX, INT_MIN
+#include <climits> // for INT_MAX, INT_MIN maybe not required
 #include <algorithm> // Sort
-#include <queue>
-#include <stack>
+#include <queue> // queue and dequeue
+#include <stack> // stack
 #include <vector>
 #include <string>
-#include <priority_queue>
 #include <utility> // pair
-#include <unordered_map>
-#include <map>
+#include <unordered_map> 
+#include <map> // map and multimap
+#include <set> // set and multiset
+#include <list>
+#include <stdlib.h> // rand
 ```
 
 取pair
@@ -65,6 +67,10 @@ a.second;
 list<Node*>::iterator it;
 *it->key;
 *it->value;
+
+map::iterator
+it->first
+it->second
 ```
 
 priority\_queue
@@ -95,6 +101,25 @@ stringstream ss(path);
 while (getline(ss,tmp,'/')) {
     // then we can get the split single element one by one
 }
+```
+
+Iterator:
+
+```cpp
+容器         支持的迭代器类     include
+vector          随机访问       vector                         
+set               双向         set                                    
+multimap          双向         map                           
+deque           随机访问       deque
+multiset          双向         set
+stack            不支持        stack
+list              双向         list
+map               双向          map
+queue            不支持        queue
+priority_queue   不支持        queue
+
+*it 用于set list 这种一对一容器
+it->first, it->second 用于 一对多容器
 ```
 
 
