@@ -46,6 +46,7 @@ DAG 的问题就 dfs+memo
 #include <vector>
 #include <string>
 #include <priority_queue>
+#include <utility> // pair
 #include <unordered_map>
 #include <map>
 ```
@@ -83,7 +84,7 @@ struct cmp {
 2. method的话，如果在class里一定要加static，在class外不用
 static bool cmp (Interval a, Interval b) {
     return a.start < b.start;
-} 
+}
 ```
 
 Getline usage:
