@@ -17,6 +17,10 @@
   * [Combination Sum IV](leetcode-category/dynamic-programming/combination-sum-iv.md)
   * [2 Keys Keyboard & 4 Keys Keyboard](leetcode-category/dynamic-programming/2-keys-keyboard-and-4-keys-keyboard.md)
 * [Tree](leetcode-category/tree.md)
+* [Union Find](leetcode-category/union-find.md)
+  * [Number of Island I && II](leetcode-category/union-find/number-of-island-i-andand-ii.md)
+  * [Number of Connected Components in an Undirected Graph](leetcode-category/union-find/number-of-connected-components-in-an-undirected-graph.md)
+  * Group Emails
 
 ## Microsoft
 
