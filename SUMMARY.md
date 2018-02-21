@@ -25,6 +25,9 @@
 ## Microsoft
 
 * [OA Mianjing](microsoft/oa.md)
+* [Onsite Mianjing](microsoft/onsite-mianjing.md)
+  * [算法题](microsoft/onsite-mianjing/leetcode-yuan-ti-and-lei-si-ti.md)
+  * [设计题](microsoft/onsite-mianjing/xi-tong-she-ji-ti-and-qi-ta-ti.md)
 * [LC Explore](microsoft/array.md)
   * [1. Array and Strings](microsoft/array/array.md)
   * [2. Linked List](microsoft/array/linked-list.md)
