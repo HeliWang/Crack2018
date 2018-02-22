@@ -1,12 +1,14 @@
-LC 13
+**Roman to Integer**  用map记录表示
 
-LC 415
+**Integer To Roman** 用map记录表示 注意加入 9 90 900 的符号
 
-Longest Palindrome Subsequence
+**Add String** 这种2个string的loop题，记得判断到头了就为0，其他的可以继续用
 
-Two Sum
+**Longest Palindrome Subsequence** **&& Substring **动态规划
 
-Tic Tac Toe
+**Two Sum** hashmap做
+
+**Tic Tac Toe** 用rows cols array，遇到1就++ 遇到2就--，直到加到N或者-N
 
 LC 82/83
 
