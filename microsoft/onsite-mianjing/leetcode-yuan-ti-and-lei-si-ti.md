@@ -14,97 +14,92 @@
 
 **Valid Parenthesis & Generate Parenthesis: **Stack & Backtracking
 
-Word Search I && II
+**Word Search I && II: ** DFS && Trie
 
-Word Break I && II
+**Word Break I && II:** Dynamic Programming && Backtracking 加 DP剪枝
 
-Combine two BST
+**Combine two BST:** Construct BST by array or linked list
 
-Merge two linked list & array
+**Merge two linked list & array**
 
-Regular Expression Match & Wildcard Matching
+**Regular Expression Match & Wildcard Matching: **Dynamic Programming
 
 Shortest Steps for Knight
 
-Get Random
+**Get Random: **Use hashmap and array, rand\(\) from \#include algorithm
 
-Reverse String II LC 541
+**Reverse String II**
+
+```cpp
+for (int i = 0; i <= s.size(); i += 2*k) {
+        reverse(s.begin() + i, min(s.begin() + i + k, s.end()));
+    }
+```
 
 Longest Path in Graph
 
-LC 240
-
 稀疏向量求内积
 
-Lint 368
+Basic Calculator I II III
 
-LC 268
+**Nth end of linked list  & Linked list Has cycle**
 
-Nth end of linked list  & Linked list Has cycle
+**Letter Combinations of a Phone Number: **Backtracking
 
-LC 88
+[Populating Next Right Pointers in Each Node](https://leetcode.com/problems/populating-next-right-pointers-in-each-node) I && II
+
+**Prefix Tree:** TrieNode hasWord, unordered\_map
+
+**Serialize and Deserialize Tree**
+
+**LIS**
+
+**Find minimum in Rotated Array**
+
+[**Largest Number**](https://leetcode.com/problems/largest-number)
+
+**Copy List with Random Pointer && Clone graph**
+
+[**Odd Even Linked List**](https://leetcode.com/problems/odd-even-linked-list)
 
 Malloc function: [http://www.ibm.com/developerworks/linux/library/l-memory](http://www.ibm.com/developerworks/linux/library/l-memory)
 
 [http://johanmabille.github.io/blog/2014/12/06/aligned-memory-allocator/](http://johanmabille.github.io/blog/2014/12/06/aligned-memory-allocator/)
 
-Spiral Matrix && Rotate Matrix
+**Spiral Matrix && Rotate Matrix**
 
-LC 73
-
-LC 208
-
-LC 116
-
-LC 300  LIS
-
-LC 297
-
-Binary Tree Level Order Travesal
+**Binary Tree Level Order Travesal**
 
 双向链表 有个next or prev 错了，要求travese一遍
 
-LC 117
-
 二维矩阵，起点是0，0，终点是最右边一列
 
-Find in rotated sorted array
+**Find in rotated sorted array**
 
-Delete a linked list node
+**Lowest common ancestor in binary tree & bst**
 
-Lowest common ancestor in binary tree & bst
-
-Find the binary representation of integer
+```cpp
+TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
+        if (!root) return NULL;
+        if (root == p || root == q) return root;
+        TreeNode* left = lowestCommonAncestor(root->left, p, q);
+        TreeNode* right = lowestCommonAncestor(root->right, p, q);
+        if (left && right) return root;
+        else return !left ? right : left;
+    }
+```
 
 Simplify Path without stack?
 
-打印乘法表
+**Get random object from data stream**
 
-**Basic Calculator I II III !!!!!!**
-
-Find second largest number in bst
-
-Clone graph
-
-Get random object from data stream
-
-Pow\(x, n\)  sqrt\(x\)
+**Pow\(x, n\)  && sqrt\(x\)**
 
 Find k closet points
 
-Roman to integer
-
-Valid IP Address
-
-Maze DFS
-
-LC 17 153 154 179 74
+**Valid IP Address**
 
 Delete words start with B
-
-Implement big integer
-
-LC 237 240
 
 Find shortest distance between two points in matrix
 
@@ -112,25 +107,27 @@ Find shortest distance between two points in matrix
 
 Remove Comments
 
-328 138
-
 295 kth largest
 
 Connect leaf node in tree\(stack\)
-
-Implement queue using array or circular linkedlist
 
 Can add interval \(more than 3 overlap will be invalid\)
 
 Product except self
 
-Top k
+**Top k**
 
-Find celebrity
+**Find celebrity**
 
 Burst Ballons
 
 Multiply Strings
+
+```cpp
+int c = res[i+j];
+res[i+j] = (a * b + c) % 10;
+res[i+j+1] += (a * b + c) / 10;
+```
 
 Odd Even Linked List
 
