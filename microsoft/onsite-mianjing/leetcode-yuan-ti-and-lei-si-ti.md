@@ -10,9 +10,9 @@
 
 **Tic Tac Toe** 用rows cols array，遇到1就++ 遇到2就--，直到加到N或者-N
 
-LC 82/83
+**Remove Duplicate in Linked List I && II : **use dummy node and duplicate number for II
 
-Valid Parenthesis & Generate Parenthesis
+**Valid Parenthesis & Generate Parenthesis: **Stack & Backtracking
 
 Word Search I && II
 
