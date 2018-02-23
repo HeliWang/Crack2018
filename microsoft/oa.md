@@ -9,7 +9,7 @@ Idea:
 ```
 找successor只有两种情况：
 如果有右child，那么就是右child的最左孩子
-如果没有右child，那么就是他的第一个左父亲
+如果没有右child，那么就是他的最近的右父亲，右父亲怎么找呢，就是在找左孩子的时候标记保存
 
 所以二分法向下查找，出现向左走，就mark一下root，因为我们要留下最后一个右父亲
 如果succ出现在该点的右孩子，那么p.val会小于这个rightChild.val，从而又实现一次向左走，并留下succ
@@ -427,11 +427,9 @@ public:
  */
 ```
 
-9. Simplify Path
+1. Simplify Path
 
-
-
-Solution: 
+Solution:
 
 ```cpp
 string simplifyPath(string path) {
