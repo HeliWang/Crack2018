@@ -16,6 +16,7 @@
   * [Dungeon Game](leetcode-category/dynamic-programming/dungeon-game.md)
   * [Combination Sum IV](leetcode-category/dynamic-programming/combination-sum-iv.md)
   * [2 Keys Keyboard & 4 Keys Keyboard](leetcode-category/dynamic-programming/2-keys-keyboard-and-4-keys-keyboard.md)
+  * [Burst Ballons](leetcode-category/dynamic-programming/burst-ballons.md)
 * [Tree](leetcode-category/tree.md)
 * [Union Find](leetcode-category/union-find.md)
   * [Number of Island I && II](leetcode-category/union-find/number-of-island-i-andand-ii.md)
