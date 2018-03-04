@@ -93,3 +93,9 @@ If no response: settimeout call
 
 If slow?  Server too far, db query to slow \(too much join\), too much traffic,  distributed api service might be called
 
+
+
+\#4. Promises 将嵌套的 callback，改造成一系列的`.then`
+
+的连缀调用，去除了层层缩进的糟糕代码风格。Promises 不是一种解决具体问题的算法，而已一种更好的代码组织模式。接受新的组织模式同时，也逐渐以全新的视角来理解异步调用。
+
