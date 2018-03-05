@@ -18,9 +18,7 @@ Zynga GWF use Elastic Load Balance to split traffic
 
 \*Random
 
-
-
-Random Solution:
+**Random Solution:**
 
 Idea:
 
@@ -44,9 +42,9 @@ private:
 public:
     /** Initialize your data structure here. */
     RandomizedSet() {
-        
+
     }
-    
+
     /** Inserts a value to the set. Returns true if the set did not already contain the specified element. */
     bool insert(int val) {
         if (mp.count(val) == 0) {
@@ -56,7 +54,7 @@ public:
         }
         return false;
     }
-    
+
     /** Removes a value from the set. Returns true if the set contained the specified element. */
     bool remove(int val) {
         if (mp.count(val) > 0) {
@@ -69,11 +67,49 @@ public:
         }
         return false;
     }
-    
+
     /** Get a random element from the set. */
     int getRandom() {
         int randomPos = rand() % cache.size();
         return cache[randomPos];
+    }
+};
+```
+
+Weighted Round Robin:
+
+```cpp
+class LoadBalancer {  // Round Robin
+private:
+    vector<pair<int, int> > cache;
+    vector<int> presum;
+    int total;
+    int curSum;
+    int index;
+
+public:
+    LoadBalancer () {
+        total = 0;
+        index = 0;
+        curSum = -1;
+    }
+
+    void add(int capacity) {
+        cache.push_back(make_pair(cache.size(), capacity));
+        total += capacity;
+        presum.push_back(total);
+    }
+
+    int dispatch() {
+        curSum = curSum % total + 1;
+        index = index % cache.size();
+        if (curSum < presum[index]) {
+            return cache[index].first;
+        }
+        else {
+            index++;
+        }
+        return cache[index].first;
     }
 };
 ```
