@@ -12,6 +12,7 @@
 
 * [LC 1-10](leetcode-in-order/lc-1-10.md)
 * [LC 11-20](leetcode-in-order/lc-11-20.md)
+* [LC 21-30](leetcode-in-order/lc-21-30.md)
 
 ## Leetcode \(Category\)
 
